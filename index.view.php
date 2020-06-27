@@ -13,7 +13,16 @@
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="" >
             <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo" value="" >
             <textarea name="mensaje" class="font-control" id="mensaje" pleaceholder="Mensaje"></textarea>
-            
+            <?php if(!empty($errores)): ?>
+                <div class="alert error">
+                    <?php echo $errores; ?>
+                </div>
+                <?php elseif($enviado):?>
+                <div class="alert success">
+                    Enviado Correctamente
+                </div>
+            <?php  endif ?>
+
             <input type="submit" value="Eviar Correo" name="submit" class="btn btn-primary">
           </form>
        </div> 
