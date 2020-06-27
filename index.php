@@ -18,7 +18,23 @@ if(isset($_POST['submit'])){
       } else{
           $errores.= 'Por favor ingresa un correo <br/>';
             }
-    
+    if(!empty($mensaje)){
+        $mensaje=htmlspecialchars($mensaje);
+        $mensaje=trim($mensaje);
+        $mensaje=stripcslashes($mensaje);
+    }else{
+        $errores.='Por favor ingresa el mensaje <br/>';
+    }
+    if(!$errores){
+        $Enviar='alex_240598@hotmail.com';
+        $asunto='Corre de pagina';
+        $mensaje1="de: $nombre \n";
+        $mensaje1 .="Correo:$correo \n";
+        $mensaje1.= "Mensaje: $mensaje \n";
+       // mail($Enviar,$asunto,$mensaje1);
+        $enviado=true;
+
+    }
 
 }
 require 'index.view.php';
